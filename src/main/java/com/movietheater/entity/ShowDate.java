@@ -1,27 +1,27 @@
 package com.movietheater.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 import javax.persistence.*;
+
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 public class ShowDate {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int showDateId;
     private LocalDate showDate;
-    private String dateName;
+//    private String dateName;
 
 
-    @ManyToMany(mappedBy = "showDates", fetch = FetchType.EAGER
-    , cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("showDates")
-    private Set<Movie> movies = new HashSet<>();
-
+//    @ManyToMany(mappedBy = "showDates", fetch = FetchType.EAGER
+//    , cascade = CascadeType.ALL)
+//    private Set<Movie> movies = new HashSet<>();
 
 }

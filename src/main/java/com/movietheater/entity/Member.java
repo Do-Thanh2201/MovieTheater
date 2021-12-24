@@ -1,10 +1,11 @@
 package com.movietheater.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Member {
 
     @Id
@@ -14,6 +15,5 @@ public class Member {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id",nullable = false )
-    @JsonIgnoreProperties("")
     private  Account account;
 }

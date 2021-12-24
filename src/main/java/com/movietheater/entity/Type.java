@@ -1,7 +1,5 @@
 package com.movietheater.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,12 +14,10 @@ public class Type {
 
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "movie_type"
-    ,joinColumns = @JoinColumn(name = "type_id")
-    ,inverseJoinColumns = @JoinColumn(name = "movie_id"))
-    @JsonIgnoreProperties("types")
+//    @JoinTable(name = "movie_type"
+//    ,joinColumns = @JoinColumn(name = "type_id")
+//    ,inverseJoinColumns = @JoinColumn(name = "movie_id"))
     private Set<Movie> movies = new HashSet<>();
-
 
 
 }

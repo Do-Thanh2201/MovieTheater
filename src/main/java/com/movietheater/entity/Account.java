@@ -1,16 +1,18 @@
 package com.movietheater.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
-
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +20,7 @@ public class Account {
     @NotNull
     private String userName;
     private String address;
-    private LocalDate LocalDateOfBirth;
+    private Date dateOfBirth;
     private  String email;
     private String fullName;
     private String gender;
@@ -26,11 +28,10 @@ public class Account {
     private String image;
     private String password;
     private  String phone;
-    private LocalDate registerLocalDate;
+    private Date registerDate;
     private String status;
 
     @OneToMany(mappedBy = "account",fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("account")
     private Set<Invoice> invoices = new HashSet<>();
 
     @OneToOne(mappedBy = "account")
@@ -41,13 +42,6 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
-    @JsonIgnoreProperties("accounts")
     private Roles roles;
-
-
-
-
-
-
 
 }

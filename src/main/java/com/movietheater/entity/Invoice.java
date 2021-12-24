@@ -1,29 +1,27 @@
 package com.movietheater.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
+@Data
 public class Invoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  String invoiceId;
     private int addScore;
-    private LocalDate bookingDate;
+    private Date bookingDate;
     private  int status;
     private  int totalMoney;
     private  int userScore;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
-    @JsonIgnoreProperties("invoices")
     private Account account;
 
     @OneToOne

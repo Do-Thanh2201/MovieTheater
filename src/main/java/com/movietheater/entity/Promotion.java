@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,9 +14,9 @@ public class Promotion {
     private  int promotionId;
     private String detail;
     private  int discountLevel;
-    private LocalDate endTime;
+    private Timestamp endTime;
     private String image;
-    private LocalDate startTime;
+    private Timestamp startTime;
     private String title;
 
 }
